@@ -80,7 +80,7 @@ function Question({ name, score, setScore, setName, id, setId, updateScore }) {
 
     const onHandlerAnswer = (answer) => {
         if(answer.correct) {
-            setScore(score + 100)
+            setScore(score + 50)
             setCorrect(true);
         }
         else {

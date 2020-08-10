@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
     User.find()
-        .sort({ score: -1 })
+        .sort({ score: -1, play_date: -1 })
         .limit(5)
         .then( data => res.json({ data }))
         .catch( err => console.log(err))
