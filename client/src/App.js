@@ -15,6 +15,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [id, setId] = useState(null);
   const [users, setUsers] = useState([]);
+  const [openNav, setOpenNav] = useState(false);
+
   console.log(id);
   useEffect(() => {
       axios.get('/api/users')
@@ -30,16 +32,20 @@ function App() {
       .catch( err => err )
   }
 
+  const updateOpenNav = () => {
+    setOpenNav(!openNav)
+  }
+
   return (
     <>
         <Modal showModal={showModal} setShowModal={setShowModal} name={name} setName={setName} id={id} setId={setId} />
         <AnimatePresence exitBeforeEnter onExitComplete={ () => setShowModal(false)}>
         <Switch location={location} key={location.key}>
         <Route path="/questions">
-          <Question score={score} setScore={setScore} name={name} users={users} setUsers={setUsers} id={id} setId={setId} updateScore={updateScore} />  
+          <Question score={score} setScore={setScore} id={id} updateScore={updateScore} />  
         </Route>
         <Route path="/">
-          <Home showModal={showModal} setShowModal={setShowModal} users={users} setUsers={setUsers} />
+          <Home setShowModal={setShowModal} users={users} openNav={openNav} setOpenNav={setOpenNav} />
         </Route>
         </Switch>
         </AnimatePresence>

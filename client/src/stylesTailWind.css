@@ -8,11 +8,11 @@
 @tailwind utilities;
 
 .btn {
-    @apply h-20 w-20 outline-none bg-primary-200 rounded-lg text-center shadow-md mr-10;
+    @apply h-20 w-20 mx-2 p-4 outline-none bg-primary-200 rounded-lg text-center shadow-md;
 }
 
 .ques {
-    @apply underline mr-10 h-20 w-20
+    @apply underline mx-2 h-20 w-20 p-4 text-center
 }
 
 .correct {

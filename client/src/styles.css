@@ -18874,6 +18874,9 @@ video {
 .btn {
   height: 5rem;
   width: 5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
   outline: 0;
   --bg-opacity: 1;
   background-color: #a9e7ea;
@@ -18881,14 +18884,16 @@ video {
   border-radius: 0.5rem;
   text-align: center;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  margin-right: 2.5rem;
 }
 
 .ques {
   text-decoration: underline;
-  margin-right: 2.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   height: 5rem;
-  width: 5rem
+  width: 5rem;
+  padding: 1rem;
+  text-align: center
 }
 
 .correct {

@@ -27,7 +27,7 @@ const modal = {
     }
 }
 
-function Model({ showModal, setShowModal, id, setId, name, setName }) {
+function Modal({ showModal, setShowModal, id, setId, name, setName }) {
     const onChangeHandler = (e) => {
         setName(e.target.value);
         console.log(name)
@@ -41,8 +41,6 @@ function Model({ showModal, setShowModal, id, setId, name, setName }) {
             .then(res => {
                 console.log(res.data.id);
                 setId(res.data.id);
-                // setShowModal(false)
-                // window.location.href = '/questions';
                 history.push('/questions');
             })
             .catch(err => console.log(err));
@@ -58,7 +56,7 @@ function Model({ showModal, setShowModal, id, setId, name, setName }) {
                 animate="visible"
                 exit="hidden"
             >
-                <motion.div className="modal max-w-lg px-4 py-2 bg-white rounded-full h-24 text-center container mx-auto"
+                <motion.div className="modal max-w-lg px-4 py-2 bg-white rounded-full h-32 text-center container mx-auto"
                     variants={modal}
                 >
                     <div className="flex justify-around">
@@ -90,4 +88,4 @@ function Model({ showModal, setShowModal, id, setId, name, setName }) {
 }
 
 
-export default Model;
+export default Modal;

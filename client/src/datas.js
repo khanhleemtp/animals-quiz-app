@@ -95,7 +95,9 @@ export const questions = [ {
         { text: 'Y', correct: true },
         { text: 'A', correct: false },
         { text: 'O', correct: false },
-        { text: 'E', correct: false }
+        { text: 'E', correct: false },
+        { text: 'M', correct: false },
+        { text: 'N', correct: false }
     ],
     svg: imgDonkey
 },
@@ -129,6 +131,7 @@ export const questions = [ {
         { text: 'W', correct: true },
         { text: 'C', correct: false },
         { text: 'M', correct: false },
+        { text: 'P', correct: false },
     ],
     svg: imgMacaw
 },
@@ -149,7 +152,9 @@ export const questions = [ {
         { text: 'E', correct: false },
         { text: 'A', correct: false },
         { text: 'I', correct: true },
-        { text: 'Y', correct: false }
+        { text: 'Y', correct: false },
+        { text: 'J', correct: false },
+        { text: 'K', correct: false }
     ],
     svg: imgRabbit
 },
@@ -160,7 +165,8 @@ export const questions = [ {
         { text: 'M', correct: false },
         { text: 'N', correct: false },
         { text: 'H', correct: true },
-        { text: 'L', correct: false }
+        { text: 'L', correct: false },
+        { text: 'Y', correct: false }
     ],
     svg: imgSheep
 },
@@ -171,7 +177,9 @@ export const questions = [ {
         { text: 'A', correct: false },
         { text: 'E', correct: false },
         { text: 'O', correct: false },
-        { text: 'U', correct: true }
+        { text: 'U', correct: true },
+        { text: 'Y', correct: false },
+        { text: 'M', correct: false },
     ],
     svg: imgTurkey
 },
