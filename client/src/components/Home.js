@@ -82,7 +82,7 @@ function Home({ setShowModal, users, openNav, setOpenNav }) {
             exit="exit"
     >   
         <ReactAudioPlayer src={music} autoPlay controls className="hidden"/>
-        <div className="grid grid-cols-3 gap-2 p-6 bg-primary-100 text-primary-700 lg:px-16 lg:p-10 h-screen overflow-hidden">
+        <div className="grid grid-cols-3 gap-2 p-6 bg-primary-100 text-primary-700 lg:px-16 lg:p-10">
             <div className="flex justify-between items-center col-span-3 mb-4 lg:hidden">
                     <img src={imgLogo} className="w-2/12 h-12"/>
                     <img onClick={() => setOpenNav(!openNav) } src={imgMenu} className="w-1/12 h-12 sm:hidden"/>

@@ -32,9 +32,7 @@ function App() {
       .catch( err => err )
   }
 
-  const updateOpenNav = () => {
-    setOpenNav(!openNav)
-  }
+
 
   return (
     <>
