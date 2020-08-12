@@ -61,9 +61,9 @@ function Question({ score, setScore, id, updateScore }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(null);
 
-    questions.map(question => {
-        return question.answers.sort(() => Math.random() -0.5)
-    })
+    // questions.map(question => {
+    //     return question.answers.sort(() => Math.random() -0.5)
+    // })
 
     const onHandlerAnswer = (answer) => {
         if(answer.correct) {
@@ -97,8 +97,8 @@ function Question({ score, setScore, id, updateScore }) {
 
 
     return (   
-        <div className={ correct === null ? 'font-slideTwo bg-primary-100 h-full p-10' : 
-            correct === true ? 'font-slideTwo h-full correct p-10' : 'font-slideTwo wrong h-full p-10'
+        <div className={ correct === null ? 'font-slideTwo bg-primary-100 p-4 min-h-screen xl:max-h-screen' : 
+            correct === true ? 'font-slideTwo correct p-4 min-h-screen xl:max-h-screen' : 'font-slideTwo wrong p-4 min-h-screen xl:max-h-screen'
         }
             variants={containerVariants}
             initial="hidden"
@@ -106,34 +106,32 @@ function Question({ score, setScore, id, updateScore }) {
             exit="exit"
         >
             <ReactAudioPlayer src={music} autoPlay controls className="hidden"/>
-                <nav className="bg-primary-200 text-3xl grid grid-cols-2 text-center text-primary-300">
+                <nav className="text-3xl grid grid-cols-2 text-center text-primary-300">
                     <motion.div
+                        className="bg-primary-200 col-span-1"
                         variants={textVariants}
                         animate="animateOne"
                     >Score: {score}</motion.div>
-                    <motion.button id="next-btn"
-                        onClick={setNextQuestion}
-                        variants={textVariants}
-                        animate="animateOne"
-                    >Next</motion.button>
+
                 </nav>
-            <div id="text-question" className="text-center font-slideOne m-6 text-2xl text-primary-400 lg:text-4xl">
+            <div id="text-question" className="text-center font-slideOne m-2 text-base sm:text-2xl font-semibold text-primary-400 lg:text-5xl">
                 { questions[currentQuestionIndex].textQuestion}
             </div>
-            <main className="grid grid-cols-4 gap-2 px-2 h-screen grid-rows-3 sm:grid-rows-2 text-xl"
+            <main className="grid grid-cols-4 gap-2 px-2 grid-rows-1 sm:grid-rows-1 text-xl"
             >
-                <div id="img-question" className="question-img col-start-2 col-end-4 sm:col-span-2 lg:w-9/12">
+                <div id="img-question" className="question-img h-32 w-7/12 ml-6 col-start-2 col-end-4 sm:w-6/12 sm:mb-16 sm:ml-12 md:mx-12 md:mt-16 md:w-8/12 lg:w-12/12 lg:w-full overflow-visible lg:mt-24 lg:col-span-1 xl:ml-48">
                             {
                                 <img src={questions[currentQuestionIndex].svg} alt="animals"/>
                             }
                 </div>
-                <div className="text-4xl sm:text-5xl text-center flex flex-col justify-center col-span-4 sm:col-span-2 sm:justify-start lg:col-span-2 lg:justify-start lg:items-center lg:pr-8">
-                    <div id="question" className="question-text flex justify-center pb-20 sm:pb-24 md:pt-16 lg:py-24 items-center">
+
+                <div className="text-2xl box-content mb-24 text-center flex flex-col justify-center col-span-4 sm:items-center sm:text-3xl md:text-5xl lg:col-span-3 lg:justify-start lg:items-around lg:mb-32 xl:mr-48 ">
+                    <div id="question" className="question-text mb-16 sm:mb-0 flex justify-center sm:pb-24 md:pt-16 lg:py-24 items-center">
                         { questions[currentQuestionIndex].questions.map((question,key) => (
                             <div key={key} className="ques">{question}</div>
                         ) )}
                     </div>
-                    <div id="answer-buttons" className="flex justify-center items-center">
+                    <div id="answer-buttons" className="flex justify-center items-center overflow-visible">
                             {   
                                 questions[currentQuestionIndex].answers.map((answer,key) => (
                                     <motion.button key={key+10} 
@@ -146,8 +144,15 @@ function Question({ score, setScore, id, updateScore }) {
                                 ))
                             }
                     </div>
+                    <motion.button
+                        className="bg-primary-200 mt-6 w-1/3 sm:mt-12 self-end overflow-visible"
+                        onClick={setNextQuestion}
+                        variants={textVariants}
+                        animate="animateOne"
+                    >Next</motion.button>
                 </div>
             </main>
+
         </div>
     )
 }
