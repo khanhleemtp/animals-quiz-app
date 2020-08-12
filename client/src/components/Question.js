@@ -97,8 +97,8 @@ function Question({ score, setScore, id, updateScore }) {
 
 
     return (   
-        <div className={ correct === null ? 'font-slideTwo bg-primary-100 h-full p-10' : 
-            correct === true ? 'font-slideTwo h-full correct p-10' : 'font-slideTwo wrong h-full p-10'
+        <div className={ correct === null ? 'font-slideTwo bg-primary-100 h-screen p-10 overflow-hidden' : 
+            correct === true ? 'font-slideTwo h-screen correct p-10' : 'font-slideTwo wrong h-screen p-10'
         }
             variants={containerVariants}
             initial="hidden"
@@ -108,10 +108,12 @@ function Question({ score, setScore, id, updateScore }) {
                 <ReactAudioPlayer src={music} autoPlay controls className="hidden"/>
                 <nav className="bg-primary-200 text-3xl grid grid-cols-2 text-center text-primary-300">
                     <motion.div
+                        className="col-span-1"
                         variants={textVariants}
                         animate="animateOne"
                     >Score: {score}</motion.div>
-                    <motion.button id="next-btn"
+                    <motion.button
+                        className="col-span-1"
                         onClick={setNextQuestion}
                         variants={textVariants}
                         animate="animateOne"
@@ -122,12 +124,12 @@ function Question({ score, setScore, id, updateScore }) {
             </div>
             <main className="grid grid-cols-4 gap-2 px-2 h-screen grid-rows-3 sm:grid-rows-2 text-xl"
             >
-                <div id="img-question" className="question-img col-start-2 col-end-4 sm:col-span-2 lg:w-9/12">
+                <div id="img-question" className="question-img col-start-2 col-end-4 sm:col-span-2 w-10/12 lg:w-9/12">
                             {
                                 <img src={questions[currentQuestionIndex].svg} alt="animals"/>
                             }
                 </div>
-                <div className="text-4xl sm:text-5xl text-center flex flex-col justify-center col-span-4 sm:col-span-2 sm:justify-start lg:col-span-2 lg:justify-start lg:items-center lg:pr-8">
+                <div className="text-4xl pb-48 px-4 sm:text-5xl text-center flex flex-col justify-center col-span-4 sm:col-span-2 sm:justify-start lg:col-span-2 lg:justify-start lg:items-center lg:pr-8">
                     <div id="question" className="question-text flex justify-center pb-20 sm:pb-24 md:pt-16 lg:py-24 items-center">
                         { questions[currentQuestionIndex].questions.map((question,key) => (
                             <div key={key} className="ques">{question}</div>
