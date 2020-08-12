@@ -119,7 +119,7 @@ function Question({ score, setScore, id, updateScore }) {
             </div>
             <main className="grid grid-cols-4 gap-2 px-2 grid-rows-1 sm:grid-rows-1 text-xl"
             >
-                <div id="img-question" className="question-img h-24 w-5/12 ml-8 mb-4 col-start-2 col-end-4 sm:w-6/12 sm:mb-16 sm:ml-12 md:mx-12 md:mt-16 md:w-8/12 lg:w-12/12 lg:w-full overflow-visible lg:mt-24 lg:col-span-1 xl:ml-48">
+                <div id="img-question" className="question-img h-24 w-5/12 ml-12 mb-10 col-start-2 col-end-4 sm:w-6/12 sm:mb-16 sm:ml-12 md:mx-12 md:mt-16 md:w-8/12 lg:w-12/12 lg:w-full overflow-visible lg:mt-24 lg:col-span-1 xl:ml-48">
                             {
                                 <img src={questions[currentQuestionIndex].svg} alt="animals"/>
                             }
