@@ -81,7 +81,7 @@ function Home({ setShowModal, users, openNav, setOpenNav }) {
             animate="visible"
             exit="exit"
     >   
-        <ReactAudioPlayer src={music} autoPlay controls className="hidden"/>
+        {/* <ReactAudioPlayer src={music} autoPlay controls className="hidden"/> */}
         <div className="grid grid-cols-3 gap-2 p-4 bg-primary-100 text-primary-700 lg:p-10 min-h-screen lg:max-h-screen top-0">
             <div className="flex justify-between items-center col-span-3 md:hidden">
                     <img src={imgLogo} className="w-2/12 h-12"/>
