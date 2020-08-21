@@ -30,7 +30,7 @@ const modal = {
 function Modal({ showModal, setShowModal, id, setId, name, setName }) {
     const onChangeHandler = (e) => {
         setName(e.target.value);
-        console.log(name)
+        // console.log(name)
     }
 
     const history = useHistory();
@@ -39,13 +39,13 @@ function Modal({ showModal, setShowModal, id, setId, name, setName }) {
         e.preventDefault();
         axios.post('/api/users', { name })
             .then(res => {
-                console.log(res.data.id);
+                // console.log(res.data.id);
                 setId(res.data.id);
                 history.push('/questions');
             })
             .catch(err => console.log(err));
             }
-    console.log(id);
+    // console.log(id);
     return (
 
         <AnimatePresence exitBeforeEnter>

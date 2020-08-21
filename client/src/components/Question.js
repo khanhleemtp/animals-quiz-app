@@ -57,9 +57,17 @@ const textVariants = {
 
 
 function Question({ score, setScore, id, updateScore }) {
-    console.log(id)
+    // console.log('question', questions)
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(null);
+    
+    useEffect(() => {
+        // shuffle the question
+        questions.sort(() => Math.floor(0.5 - Math.random()));
+        return () => {
+
+        }
+    }, [])
 
     // questions.map(question => {
     //     return question.answers.sort(() => Math.random() -0.5)

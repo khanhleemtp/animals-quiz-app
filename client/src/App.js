@@ -17,12 +17,12 @@ function App() {
   const [users, setUsers] = useState([]);
   const [openNav, setOpenNav] = useState(false);
 
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
       axios.get('/api/users')
           .then(res => {
               setUsers(res.data.data);
-              console.log(res.data.data)
+              // console.log(res.data.data)
           })
   }, [])
 
