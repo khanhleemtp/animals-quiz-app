@@ -6,6 +6,7 @@ import Modal from './components/Modal';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Question from './components/Question';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -39,12 +40,15 @@ function App() {
         <Modal showModal={showModal} setShowModal={setShowModal} name={name} setName={setName} id={id} setId={setId} />
         <AnimatePresence exitBeforeEnter onExitComplete={ () => setShowModal(false)}>
         <Switch location={location} key={location.key}>
-        <Route path="/questions">
+        <Route exact path="/questions">
           <Question score={score} setScore={setScore} id={id} updateScore={updateScore} />  
         </Route>
-        <Route path="/">
+        <Route exact path="/" component={Home}>
           <Home setShowModal={setShowModal} users={users} openNav={openNav} setOpenNav={setOpenNav} />
         </Route>
+        <Route path="*">
+            <NotFound />
+          </Route>
         </Switch>
         </AnimatePresence>
    </>

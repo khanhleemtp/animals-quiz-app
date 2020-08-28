@@ -3,6 +3,7 @@ import { questions } from '../datas';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactAudioPlayer from 'react-audio-player';
 import music from '../music1.mp3';
+import { Redirect } from 'react-router-dom';
 
 const containerVariants = {
     hidden: {
@@ -93,7 +94,8 @@ function Question({ score, setScore, id, updateScore }) {
                          Your score is ${score}
                          Try again :D
             `)
-            window.location.href = '/';
+            // return Redirect('/');
+            return window.location.href = '/';
         }
         else {
             setCurrentQuestionIndex(prevIndex => prevIndex + 1);
@@ -102,8 +104,10 @@ function Question({ score, setScore, id, updateScore }) {
     }
 
 
-
-
+    console.log(id);
+    if(!id) {
+       return window.location.href = '/';
+    }
     return (   
         <div className={ correct === null ? 'font-slideTwo bg-primary-100 p-4 min-h-screen xl:max-h-screen' : 
             correct === true ? 'font-slideTwo correct p-4 min-h-screen xl:max-h-screen' : 'font-slideTwo wrong p-4 min-h-screen xl:max-h-screen'
