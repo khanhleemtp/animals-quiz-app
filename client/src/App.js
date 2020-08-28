@@ -17,7 +17,7 @@ function App() {
   const [id, setId] = useState(null);
   const [users, setUsers] = useState([]);
   const [openNav, setOpenNav] = useState(false);
-
+  const [error, setError] = useState('');
   // console.log(id);
   useEffect(() => {
       axios.get('/api/users')
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-        <Modal showModal={showModal} setShowModal={setShowModal} name={name} setName={setName} id={id} setId={setId} />
+        <Modal showModal={showModal} setShowModal={setShowModal} name={name} setName={setName} id={id} setId={setId} error={error} setError={setError} />
         <AnimatePresence exitBeforeEnter onExitComplete={ () => setShowModal(false)}>
         <Switch location={location} key={location.key}>
         <Route exact path="/questions">

@@ -104,7 +104,7 @@ function Question({ score, setScore, id, updateScore }) {
     }
 
 
-    console.log(id);
+    // console.log(id);
     if(!id) {
        return window.location.href = '/';
     }

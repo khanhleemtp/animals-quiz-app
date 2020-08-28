@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     
     // simple validation
     if(!name) {
-        return res.status(400).json({ msg: 'Please enter your name'});
+        return res.status(404).json({ error: 'Please enter your name' });
     }
     const newUser = new User({
         name, score

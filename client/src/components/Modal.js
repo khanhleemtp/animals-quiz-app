@@ -27,7 +27,8 @@ const modal = {
     }
 }
 
-function Modal({ showModal, setShowModal, id, setId, name, setName }) {
+function Modal({ showModal, setShowModal, id, setId, name, setName, error, setError }) {
+    
     const onChangeHandler = (e) => {
         setName(e.target.value);
         // console.log(name)
@@ -43,7 +44,7 @@ function Modal({ showModal, setShowModal, id, setId, name, setName }) {
                 setId(res.data.id);
                 history.push('/questions');
             })
-            .catch(err => console.log(err));
+            .catch(err => setError(err.response.data.error));
             }
     // console.log(id);
     return (
@@ -59,6 +60,9 @@ function Modal({ showModal, setShowModal, id, setId, name, setName }) {
                 <motion.div className="modal max-w-lg px-4 py-2 bg-white rounded-full h-32 text-center container mx-auto"
                     variants={modal}
                 >
+                    {
+                        error ? <h2>{error}</h2> : null
+                    }
                     <div className="flex justify-around">
                         <p className="text-gray-800 font-semibold">What is your name?</p>
                         <p className="cursor-pointer" onClick={() => setShowModal(false)}>x</p>
